@@ -1,0 +1,38 @@
+[package]
+name = "ebar"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[[bin]]
+name = "ebar"
+path = "src/main.rs"
+
+[[bin]]
+name = "ebar-json"
+path = "bin/json.rs"
+
+[lib]
+path = "src/lib.rs"
+
+[workspace]
+members = [
+	"crates/view",
+	"crates/ejson"
+]
+
+[dependencies]
+view = { path = "crates/view" }
+ejson = { path = "crates/ejson" }
+walkdir = "2.3.2"
+anyhow = "1.0.57"
+clap = { version = "3.2.6", default-features = false, features = ["std", "cargo", "env", "derive"] }
+rpassword = "6.0.1"
+dialoguer = "0.10.1"
+serde = { version = "1.0.137", features = ["std", "serde_derive", "rc"] }
+qrcode = { version = "0.12.0", optional = true }
+clipboard = { version = "0.5.0", optional = true }
+serde_json = "1.0.81"
+shellexpand = "2.1.0"
+colored = "2.0.0"
+regex = "1.5.6"
